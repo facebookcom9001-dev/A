@@ -40,6 +40,10 @@ export async function requireAuth(req: any, res: any, next: any) {
     res.status(401).json({ error: "الجلسة منتهية أو غير صالحة" });
     return;
   }
+  if (user.isBanned) {
+    res.status(403).json({ error: "تم حظر هذا الحساب" });
+    return;
+  }
   req.authUser = user;
   req.authToken = token;
   next();
@@ -120,6 +124,11 @@ router.post("/auth/verify-otp", async (req, res) => {
       .values({ email: emailLower, name: "", university: "" })
       .returning();
     user = created;
+  }
+
+  if (user.isBanned) {
+    res.status(403).json({ error: "تم حظر هذا الحساب ولا يمكنه تسجيل الدخول" });
+    return;
   }
 
   // Show profile setup if name or university is missing

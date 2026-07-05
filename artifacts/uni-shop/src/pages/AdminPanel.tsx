@@ -4,13 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Shield, Plus, Trash2, Megaphone } from "lucide-react";
+import { Shield, Plus, Trash2, Megaphone, Users, Ban, CheckCircle2 } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface Announcement {
   id: number;
   title: string;
   body: string;
+  createdAt: string;
+}
+
+interface AdminUser {
+  id: number;
+  name: string;
+  email: string;
+  university: string;
+  isAdmin: boolean;
+  isBanned: boolean;
   createdAt: string;
 }
 
@@ -32,6 +42,18 @@ export default function AdminPanel() {
       return res.json();
     },
     enabled: !!token,
+  });
+
+  const { data: users, isLoading: isLoadingUsers } = useQuery<AdminUser[]>({
+    queryKey: ["admin-users"],
+    queryFn: async () => {
+      const res = await fetch("/api/admin/users", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error("فشل التحميل");
+      return res.json();
+    },
+    enabled: !!token && !!user?.isAdmin,
   });
 
   if (!user?.isAdmin) {
@@ -77,6 +99,24 @@ export default function AdminPanel() {
       queryClient.invalidateQueries({ queryKey: ["announcements"] });
     } catch {
       toast({ title: "خطأ", description: "فشل الحذف", variant: "destructive" });
+    }
+  };
+
+  const handleToggleBan = async (targetUser: AdminUser) => {
+    try {
+      const res = await fetch(`/api/admin/users/${targetUser.id}/ban`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ isBanned: !targetUser.isBanned }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "فشل التحديث");
+      }
+      toast({ title: targetUser.isBanned ? "تم رفع الحظر عن الحساب" : "تم حظر الحساب" });
+      queryClient.invalidateQueries({ queryKey: ["admin-users"] });
+    } catch (e) {
+      toast({ title: "خطأ", description: e instanceof Error ? e.message : "فشل التحديث", variant: "destructive" });
     }
   };
 
@@ -130,6 +170,58 @@ export default function AdminPanel() {
             {posting ? "جاري النشر..." : "نشر التعميم"}
           </Button>
         </form>
+      </div>
+
+      {/* User Management */}
+      <div className="mb-10">
+        <div className="flex items-center gap-2 mb-4">
+          <Users className="w-5 h-5 text-primary" />
+          <h2 className="text-xl font-black">إدارة المستخدمين</h2>
+        </div>
+        {isLoadingUsers ? (
+          <div className="text-center py-10 border-4 border-black bg-muted">
+            <p className="font-bold">جاري التحميل...</p>
+          </div>
+        ) : !users?.length ? (
+          <div className="text-center py-10 border-4 border-black bg-muted">
+            <p className="font-bold text-muted-foreground">لا يوجد مستخدمون</p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {users.map(u => (
+              <div
+                key={u.id}
+                className={`flex items-center justify-between gap-4 border-4 border-black neo-shadow p-4 ${u.isBanned ? "bg-destructive/10" : "bg-card"}`}
+              >
+                <div className="min-w-0">
+                  <p className="font-black truncate">
+                    {u.name || "بدون اسم"} {u.isAdmin && <span className="text-primary">(مشرف)</span>}
+                  </p>
+                  <p className="text-sm text-muted-foreground font-medium truncate">{u.email}</p>
+                </div>
+                {u.id !== user.id && (
+                  <Button
+                    onClick={() => handleToggleBan(u)}
+                    variant={u.isBanned ? "default" : "destructive"}
+                    className="border-2 border-black rounded-none neo-shadow font-bold flex-shrink-0"
+                  >
+                    {u.isBanned ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 ml-2" />
+                        رفع الحظر
+                      </>
+                    ) : (
+                      <>
+                        <Ban className="w-4 h-4 ml-2" />
+                        حظر
+                      </>
+                    )}
+                  </Button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Announcements List */}

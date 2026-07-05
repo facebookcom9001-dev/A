@@ -14,6 +14,32 @@ async function requireAdmin(req: any, res: any, next: any) {
   next();
 }
 
+router.get("/admin/users", requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const rows = await db.select().from(usersTable).orderBy(desc(usersTable.createdAt));
+    res.json(rows.map(u => ({ ...u, createdAt: u.createdAt.toISOString() })));
+  } catch (err) {
+    req.log.error({ err }, "Failed to get users");
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.patch("/admin/users/:id/ban", requireAuth, requireAdmin, async (req: any, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) { res.status(400).json({ error: "Invalid id" }); return; }
+  const { isBanned } = req.body as { isBanned?: boolean };
+  if (typeof isBanned !== "boolean") { res.status(400).json({ error: "isBanned مطلوب" }); return; }
+  if (id === req.authUser.id) { res.status(400).json({ error: "لا يمكنك حظر نفسك" }); return; }
+  try {
+    const [user] = await db.update(usersTable).set({ isBanned }).where(eq(usersTable.id, id)).returning();
+    if (!user) { res.status(404).json({ error: "Not found" }); return; }
+    res.json({ ...user, createdAt: user.createdAt.toISOString() });
+  } catch (err) {
+    req.log.error({ err }, "Failed to update ban status");
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 router.get("/admin/announcements", async (req, res) => {
   try {
     const rows = await db.select().from(announcementsTable).orderBy(desc(announcementsTable.createdAt));
