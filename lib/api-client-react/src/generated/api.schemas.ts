@@ -44,6 +44,7 @@ export interface Listing {
   description: string;
   price: number;
   category: string;
+  section?: string;
   /** @nullable */
   imageUrl?: string | null;
   sellerId: number;
@@ -56,6 +57,15 @@ export interface Listing {
   createdAt: string;
 }
 
+export type ListingInputStatus = typeof ListingInputStatus[keyof typeof ListingInputStatus];
+
+
+export const ListingInputStatus = {
+  available: 'available',
+  sold: 'sold',
+  reserved: 'reserved',
+} as const;
+
 export interface ListingInput {
   /** @minLength 1 */
   title: string;
@@ -63,9 +73,11 @@ export interface ListingInput {
   description: string;
   price: number;
   category: string;
+  section?: string;
   imageUrl?: string;
   sellerId: number;
   tags?: string;
+  status?: ListingInputStatus;
 }
 
 export type ListingUpdateStatus = typeof ListingUpdateStatus[keyof typeof ListingUpdateStatus];
@@ -137,6 +149,7 @@ export interface RequestUploadUrlResponse {
 }
 
 export type GetListingsParams = {
+section?: string;
 category?: string;
 search?: string;
 minPrice?: number;

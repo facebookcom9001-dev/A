@@ -23,6 +23,7 @@ import Startups from "@/pages/sections/Startups";
 import LostFound from "@/pages/sections/LostFound";
 import Borrow from "@/pages/sections/Borrow";
 import AdminPanel from "@/pages/AdminPanel";
+import InfoPage from "@/pages/InfoPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -71,6 +72,9 @@ function Router() {
           <Route path="/lost-found" component={LostFound} />
           <Route path="/borrow" component={Borrow} />
           <Route path="/admin" component={AdminPanel} />
+          <Route path="/about" component={() => <InfoPage page="about" />} />
+          <Route path="/terms" component={() => <InfoPage page="terms" />} />
+          <Route path="/privacy" component={() => <InfoPage page="privacy" />} />
           <Route component={NotFound} />
         </Switch>
       </main>

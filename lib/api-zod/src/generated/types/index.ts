@@ -17,6 +17,7 @@ export * from './getListingsSort';
 export * from './healthStatus';
 export * from './listing';
 export * from './listingInput';
+export * from './listingInputStatus';
 export * from './listingStatus';
 export * from './listingUpdate';
 export * from './listingUpdateStatus';

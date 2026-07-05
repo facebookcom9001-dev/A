@@ -5,6 +5,7 @@
  * Uni Shop API specification
  * OpenAPI spec version: 0.1.0
  */
+import type { ListingInputStatus } from './listingInputStatus';
 
 export interface ListingInput {
   /** @minLength 1 */
@@ -13,7 +14,9 @@ export interface ListingInput {
   description: string;
   price: number;
   category: string;
+  section?: string;
   imageUrl?: string;
   sellerId: number;
   tags?: string;
+  status?: ListingInputStatus;
 }

@@ -8,6 +8,7 @@
 import type { GetListingsSort } from './getListingsSort';
 
 export type GetListingsParams = {
+section?: string;
 category?: string;
 search?: string;
 minPrice?: number;

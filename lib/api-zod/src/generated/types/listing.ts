@@ -13,6 +13,7 @@ export interface Listing {
   description: string;
   price: number;
   category: string;
+  section?: string;
   /** @nullable */
   imageUrl?: string | null;
   sellerId: number;

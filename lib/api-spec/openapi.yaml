@@ -40,6 +40,11 @@ paths:
       tags: [listings]
       summary: Get all listings
       parameters:
+        - name: section
+          in: query
+          required: false
+          schema:
+            type: string
         - name: category
           in: query
           required: false
@@ -403,6 +408,8 @@ components:
           type: number
         category:
           type: string
+        section:
+          type: string
         imageUrl:
           type: ["string", "null"]
         sellerId:
@@ -435,12 +442,17 @@ components:
           type: number
         category:
           type: string
+        section:
+          type: string
         imageUrl:
           type: string
         sellerId:
           type: integer
         tags:
           type: string
+        status:
+          type: string
+          enum: [available, sold, reserved]
 
     ListingUpdate:
       type: object

@@ -1,17 +1,12 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Info, FileText, ShieldCheck } from "lucide-react";
+import { useLocation } from "wouter";
+import { ArrowRight, Info, FileText, ShieldCheck } from "lucide-react";
 
 export type InfoPageKey = "about" | "terms" | "privacy";
 
 const CONTENT: Record<InfoPageKey, { title: string; icon: React.ReactNode; body: string[] }> = {
   about: {
     title: "عن الموقع",
-    icon: <Info className="w-6 h-6" />,
+    icon: <Info className="w-7 h-7 text-white" />,
     body: [
       "«Uni Shop» هو سوق رقمي مخصص لطلاب الجامعات الأردنية، بُني ليكون المكان الأول اللي بيقدر فيه أي طالب يبيع، يشتري، أو يتبادل أي شي مع طلاب جامعته أو جامعات ثانية.",
       "من بيع الكتب والأجهزة، لإيجاد سكن أو زميل سكن، لإعلانات الوظائف والفرص الطلابية، لحتى المفقودات — كل شي بمكان واحد وبخصوصية إنه التسجيل يكون فقط عبر البريد الجامعي الرسمي (.edu.jo) لضمان إن المجتمع طلابي بالكامل.",
@@ -20,7 +15,7 @@ const CONTENT: Record<InfoPageKey, { title: string; icon: React.ReactNode; body:
   },
   terms: {
     title: "شروط الاستخدام",
-    icon: <FileText className="w-6 h-6" />,
+    icon: <FileText className="w-7 h-7 text-white" />,
     body: [
       "باستخدامك للمنصة أنت توافق على الشروط التالية:",
       "١. المنصة مخصصة حصراً لطلاب الجامعات الأردنية ممن يملكون بريد جامعي رسمي، ويُمنع انتحال صفة أو استخدام بيانات غير صحيحة.",
@@ -32,7 +27,7 @@ const CONTENT: Record<InfoPageKey, { title: string; icon: React.ReactNode; body:
   },
   privacy: {
     title: "سياسة الخصوصية",
-    icon: <ShieldCheck className="w-6 h-6" />,
+    icon: <ShieldCheck className="w-7 h-7 text-white" />,
     body: [
       "نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
       "١. نجمع فقط المعلومات الضرورية لتشغيل المنصة: البريد الجامعي، الاسم، الجامعة، وأي بيانات تضيفها بنفسك على ملفك الشخصي أو إعلاناتك.",
@@ -44,24 +39,31 @@ const CONTENT: Record<InfoPageKey, { title: string; icon: React.ReactNode; body:
   },
 };
 
-export function InfoDialog({ page, onClose }: { page: InfoPageKey | null; onClose: () => void }) {
-  if (!page) return null;
+export default function InfoPage({ page }: { page: InfoPageKey }) {
+  const [, setLocation] = useLocation();
   const content = CONTENT[page];
+
   return (
-    <Dialog open={!!page} onOpenChange={v => { if (!v) onClose(); }}>
-      <DialogContent className="border-4 border-black rounded-none neo-shadow max-w-xl max-h-[80vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-2xl font-black">
-            {content.icon}
-            {content.title}
-          </DialogTitle>
-        </DialogHeader>
-        <div className="space-y-4 text-right leading-relaxed font-medium">
+    <div className="container mx-auto px-4 py-10 max-w-3xl">
+      <button
+        onClick={() => setLocation("/")}
+        className="flex items-center gap-2 font-bold text-sm mb-6 hover:underline"
+      >
+        <ArrowRight className="w-4 h-4" />
+        العودة للرئيسية
+      </button>
+
+      <div className="bg-card border-4 border-black neo-shadow">
+        <div className="flex items-center gap-3 p-6 border-b-4 border-black bg-primary">
+          {content.icon}
+          <h1 className="text-2xl md:text-3xl font-display font-black text-white">{content.title}</h1>
+        </div>
+        <div className="p-6 md:p-10 space-y-4 text-right leading-relaxed font-medium">
           {content.body.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
 }

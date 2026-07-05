@@ -21,6 +21,7 @@ export const HealthCheckResponse = zod.object({
  * @summary Get all listings
  */
 export const GetListingsQueryParams = zod.object({
+  "section": zod.coerce.string().optional(),
   "category": zod.coerce.string().optional(),
   "search": zod.coerce.string().optional(),
   "minPrice": zod.coerce.number().optional(),
@@ -34,6 +35,7 @@ export const GetListingsResponseItem = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -58,9 +60,11 @@ export const CreateListingBody = zod.object({
   "description": zod.string().min(1),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().optional(),
   "sellerId": zod.number(),
-  "tags": zod.string().optional()
+  "tags": zod.string().optional(),
+  "status": zod.enum(['available', 'sold', 'reserved']).optional()
 })
 
 export const CreateListingResponse = zod.object({
@@ -69,6 +73,7 @@ export const CreateListingResponse = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -89,6 +94,7 @@ export const GetFeaturedListingsResponseItem = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -110,6 +116,7 @@ export const GetRecentListingsResponseItem = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -135,6 +142,7 @@ export const GetListingResponse = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -169,6 +177,7 @@ export const UpdateListingResponse = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -221,6 +230,7 @@ export const GetFavoritesResponseItem = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
@@ -314,6 +324,7 @@ export const GetUserListingsResponseItem = zod.object({
   "description": zod.string(),
   "price": zod.number(),
   "category": zod.string(),
+  "section": zod.string().optional(),
   "imageUrl": zod.string().nullish(),
   "sellerId": zod.number(),
   "sellerName": zod.string(),
