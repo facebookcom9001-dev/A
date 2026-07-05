@@ -1,0 +1,37 @@
+uploads = []
+
+[[generated]]
+id = "VsrCJPDIdE1jCE-E1MpqX"
+uri = "file://artifacts/uni-shop/public/images/art-placeholder.png"
+type = "image"
+title = "Art supplies and canvas"
+
+[[generated]]
+id = "I3Dm3tLewFrnfhwHCc-0B"
+uri = "file://artifacts/uni-shop/public/images/software-placeholder.png"
+type = "image"
+title = "Code on screen with coffee"
+
+[[generated]]
+id = "oUelQ9QjoS_e4MZvNs5EQ"
+uri = "file://artifacts/uni-shop/public/images/handmade-placeholder.png"
+type = "image"
+title = "Handmade craft tools"
+
+[[generated]]
+id = "RinODN77pIIkDGH9sZLc9"
+uri = "file://artifacts/uni-shop/public/images/hero-banner.png"
+type = "image"
+title = "Student market hero banner"
+
+[[generated]]
+id = "YJOwpRd7rIWaCZ_KhfbpL"
+uri = "file://artifacts/uni-shop-mobile/assets/images/icon.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "veMD44qSX-_ToAwtpmIOq"
+uri = "file://uni-shop-files.tar.gz"
+type = "unspecified"
+title = "ملفات Uni Shop (source code)"

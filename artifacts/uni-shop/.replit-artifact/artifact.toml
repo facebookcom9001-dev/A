@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Uni Shop"
+version = "1.0.0"
+id = "artifacts/uni-shop"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24866
+
+[services.development]
+run = "socket-pnpm --filter @workspace/uni-shop run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/uni-shop", "run", "build" ]
+publicDir = "artifacts/uni-shop/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24866"
+BASE_PATH = "/"

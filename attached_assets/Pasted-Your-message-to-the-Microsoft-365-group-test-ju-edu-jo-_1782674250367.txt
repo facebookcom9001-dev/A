@@ -1,0 +1,128 @@
+Your message to the Microsoft 365 group test@ju.edu.jo couldn't be delivered.
+The group test isn't set up to receive messages from tuythgjyt@gmail.com.
+tuythgjyt@gmail.com 	Office 365 	test
+Sender 		Action Required
+				
+		Sender not allowed
+
+How to Fix It
+Try one or more of the following:
+
+    If you're a member of the group, you might be registered with an email address other than tuythgjyt@gmail.com. Resend your message using the email address where you received a welcome message from the group.
+    Ask the group owner to add tuythgjyt@gmail.com as a group member. If you don't know who the group owner is, contact the organization's customer service department for assistance.
+    Ask the group owner to allow people outside their organization to send email to the group.
+
+
+
+More Info for Email Admins
+Status code: 550 5.7.193
+
+The Microsoft 365 group, test@ju.edu.jo, is configured to reject messages sent to it from outside its organization -- unless the sender is a guest group member. tuythgjyt@gmail.com isn't part of the organization, and it isn't a guest group member.
+
+If you're the group's email admin or owner, check if the sender is a member of the group, but is registered under a different email address. Alternatively, the group owner, or email admin, can add tuythgjyt@gmail.com as a guest member of the group.
+
+Original Message Details
+Created Date: 	6/28/2026 7:08:00 PM
+Sender Address: 	tuythgjyt@gmail.com
+Recipient Address: 	test@ju.edu.jo
+Subject: 	828898 — رمز تحقق Uni Shop
+
+Error Details
+Error: 	550 5.7.193 UnifiedGroupAgent; Delivery failed because the sender isn't a group member or external senders aren't permitted to send to this group.
+Message rejected by: 	AS8PR01MB7672.eurprd01.prod.exchangelabs.com
+
+Notification Details
+Sent by: 	AS8PR01MB7672.eurprd01.prod.exchangelabs.com
+
+Message Hops
+HOP 	TIME (UTC) 	FROM 	TO 	WITH 	RELAY TIME
+1 	6/28/2026
+7:08:02 PM 	[127.0.0.1] 	smtp.gmail.com 	ESMTPSA 	2 sec
+2 	6/28/2026
+7:08:04 PM 		mail-dy1-x132e.google.com 	SMTP 	2 sec
+3 	6/28/2026
+7:08:05 PM 	mail-dy1-x132e.google.com 	AMS0EPF000001A6.mail.protection.outlook.com 	Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) 	1 sec
+4 	6/28/2026
+7:08:05 PM 	AMS0EPF000001A6.eurprd05.prod.outlook.com 	AS4P250CA0025.outlook.office365.com 	Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) 	*
+5 	6/28/2026
+7:08:05 PM 	AS4P250CA0025.EURP250.PROD.OUTLOOK.COM 	AS8PR01MB7672.eurprd01.prod.exchangelabs.com 	Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) 	*
+
+Original Message Headers
+
+Received: from AS4P250CA0025.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5e3::15)
+ by AS8PR01MB7672.eurprd01.prod.exchangelabs.com (2603:10a6:20b:2a7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Sun, 28 Jun
+ 2026 19:08:05 +0000
+Received: from AMS0EPF000001A6.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5e3:cafe::66) by AS4P250CA0025.outlook.office365.com
+ (2603:10a6:20b:5e3::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Sun,
+ 28 Jun 2026 19:08:05 +0000
+Authentication-Results: spf=pass (sender IP is 2607:f8b0:4864:20::132e)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 2607:f8b0:4864:20::132e as permitted sender) receiver=protection.outlook.com;
+ client-ip=2607:f8b0:4864:20::132e; helo=mail-dy1-x132e.google.com; pr=C
+Received: from mail-dy1-x132e.google.com (2607:f8b0:4864:20::132e) by
+ AMS0EPF000001A6.mail.protection.outlook.com (2603:10a6:20f:fff4:0:14:0:9)
+ with Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Sun, 28 Jun 2026 19:08:05 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-30c5912314fso297495eec.2
+        for <test@ju.edu.jo>; Sun, 28 Jun 2026 12:08:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782673683; x=1783278483; darn=ju.edu.jo;
+        h=content-type:mime-version:date:content-transfer-encoding:message-id
+         :subject:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=v6uD6nA+WC+P8Yxho7yfPz2KOo/zO1qjoQc9grFlrpo=;
+        b=tNPfxYEMqqH3/Ydse+22KzZlWRvkufwntOL1O4eJa6YOCprYcPkH6/jRJG15fp/hli
+         8DRWW92pvCnxRQF4AjchHQvK5y3tP2trmWGK9u60FXH9SLB5Pmo8xXIXsE/poRy0rxJJ
+         p9eFrOXjs3Mn5dgnR1jt1APZge9y3VngGRP79o+8S6cQVCzosG/Au1TD8pr7Pmm2qlnA
+         9zasGLdU65rkI0uH+fiVJRDaMjG7oxM9wGw2g9McFhayClIO51vpHOTGJE26VWwcoxZD
+         EIEZJKyzIR5umvD/2x7S6cCDqvfq9Za9O9Pmu8QHGShryPOVoBLO7p9iKGx5qK6fW2Hp
+         ofvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782673683; x=1783278483;
+        h=content-type:mime-version:date:content-transfer-encoding:message-id
+         :subject:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v6uD6nA+WC+P8Yxho7yfPz2KOo/zO1qjoQc9grFlrpo=;
+        b=W9qOVbtka5RHSuMHt4rPKrpaLv3v6RAROwMZeUC72TcIbJtvtISNmuGaBAjxUKB2Gt
+         uwbfBBjExAgHzxi8vl2ajLQSEGMJtY1+VN5H5zHBqvgoxPCIgxZoX841V89JMgT02/77
+         xcITULHzvemvt98PnNP/4/rFDQYIyMfxtlGkPydl6NVD0VS0dgKPWz0MlxzEmscJpGCB
+         ksf4ksHJICsHL2jZJMwOO0NTveLoIae/PnyN/upb49GF1fennFkTxKqFknoGmXgstw7m
+         K8pL5IKH8KCFgv6H8WbHezS3IkoM9bj0KCcIRIiBJ/FobSdZIBNEyiaxYBWhc5N+0o0+
+         LZLQ==
+X-Gm-Message-State: AOJu0YyKAfW25tWM3qOwvEe/O8Nc9dXCciC1uaZwaGgaIJiXNhUxvc0M
+	ffaMjJ1vg9OFcdTdV8oYWOYS7RMe0hRbl9wbTJjilOubEcrh8jh5Fx8RaTZL4zHrjzHUJg==
+X-Gm-Gg: AfdE7cnBhdhueAaRbT3T6Fl7B3wQRPMmzp/rDDP98xWogxlBJ5HhosqtNGif8YfMWMR
+	KP5+vWX52V7l2NAnM16DXbYh1lqmLnv3jxCwGJ3bb/oHq/j59xU9xdhsaXv7vPS60hUUNCwsMrv
+	2MqEPY9b2AsnKEmE0aJDk+tjtl4jGYdEyBoiS31kLl5yn+RGr/6T/YdSnWtE7sZcdUQZaAcGCvB
+	2tcdBLaX8vYAfWNEC9FxNVpEnise5+k65OZVhhMPsSz8LtNaK5kOVY/yk8jXIqqgPenzf86TQ5P
+	YOOpIR26qM5ZRS36qPWF2j4LmWxqQA4adwWP3zC049j6qP+Ny31BPyPYEC1FZwsjLQoPPULRnS7
+	zy9I6qK0JMBssVTBN7ZVzZJkgeQITkPSX5VguVAl94tD7E6VkCqrOR6EtwDh7SQUcz8a9Fo+KED
+	4h5IRTs0rXHjEuiMkQa1yqSc1lSvlQIcna/Ziw0IZJtJTfsogzWe4cWCs=
+X-Received: by 2002:a05:7301:5f08:b0:30e:cda8:e35 with SMTP id 5a478bee46e88-30ecda816f5mr388876eec.8.1782673683179;
+        Sun, 28 Jun 2026 12:08:03 -0700 (PDT)
+Return-Path: tuythgjyt@gmail.com
+Received: from [127.0.0.1] (125.143.200.35.bc.googleusercontent.com. [35.200.143.125])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c7c4c691dsm36837704eec.5.2026.06.28.12.08.01
+        for <test@ju.edu.jo>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Jun 2026 12:08:02 -0700 (PDT)
+From: Uni Shop <tuythgjyt@gmail.com>
+To: test@ju.edu.jo
+Subject: =?UTF-8?B?ODI4ODk4IOKAlCDYsdmF2LIg2KrYrdmC2YIgVW5p?=
+ =?UTF-8?B?IFNob3A=?=
+Message-ID: <1de94e82-e249-805d-a3d2-67f22ffbf517@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Date: Sun, 28 Jun 2026 19:08:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 05405dba-373c-4e20-a30e-3e6fcf507cfe:0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001A6:EE_|AS8PR01MB7672:EE_
+X-MS-Office365-Filtering-Correlation-Id: a53fff3d-fb4f-40d6-7030-08ded5489548
