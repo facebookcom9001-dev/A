@@ -19,3 +19,6 @@ channel = "stable-25_05"
 
 [workflows]
 runButton = "Project"
+
+[deployment]
+deploymentTarget = "cloudrun"
