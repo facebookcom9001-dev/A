@@ -77,7 +77,7 @@ router.post("/auth/send-otp", async (req, res) => {
   res.json({
     success: true,
     emailSent,
-    devCode: code,
+    ...(emailSent ? {} : { devCode: code }),
   });
 });
 
