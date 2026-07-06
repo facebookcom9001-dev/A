@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, Plus, LogOut, User, MessageCircle, Menu, X, Briefcase, Home, Rocket, Search, Handshake, Pencil, Shield } from "lucide-react";
+import { ShoppingBag, Plus, LogOut, User, MessageCircle, Menu, X, Briefcase, Home, Rocket, Search, Handshake, Pencil, Shield, Sun, Moon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,6 +26,7 @@ const sectionIcons: Record<string, React.ReactNode> = {
 export function Navbar() {
   const [location] = useLocation();
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [editProfileOpen, setEditProfileOpen] = useState(false);
 
@@ -59,6 +61,14 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label="تبديل الوضع الداكن"
+            className="p-2 border-2 border-black bg-white dark:bg-card hover:bg-accent/20 transition-colors"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+
           <Link href="/messages" className={`relative p-2 border-2 transition-colors ${isActive("/messages") ? "border-black bg-primary text-white" : "border-black bg-white hover:bg-accent/20"}`}>
             <MessageCircle className="w-5 h-5" />
           </Link>
