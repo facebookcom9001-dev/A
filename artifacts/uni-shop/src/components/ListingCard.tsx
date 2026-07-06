@@ -42,7 +42,7 @@ export function ListingCard({ listing, index = 0 }: ListingCardProps) {
               alt={listing.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute top-2 left-2 bg-white border-2 border-black p-1.5 flex items-center justify-center neo-shadow z-10">
+            <div className="absolute top-2 left-2 bg-card border-2 border-black p-1.5 flex items-center justify-center neo-shadow z-10">
               <Heart className="h-5 w-5 text-destructive" />
               <span className="mr-1 font-bold text-sm">{listing.favoriteCount}</span>
             </div>

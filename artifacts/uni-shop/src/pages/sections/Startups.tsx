@@ -58,7 +58,7 @@ export default function Startups() {
             <button
               key={s}
               onClick={() => { setStage(s); setQuery({ search, stage: s }); }}
-              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${stage === s ? "bg-accent text-black" : "bg-white hover:bg-accent/20"}`}
+              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${stage === s ? "bg-accent text-black" : "bg-card hover:bg-accent/20"}`}
             >
               {s || "الكل"}
             </button>

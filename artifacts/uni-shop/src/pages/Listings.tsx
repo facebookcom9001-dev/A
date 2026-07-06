@@ -177,7 +177,7 @@ export default function Listings() {
             </div>
           ) : (
             <div className="text-center py-32 border-4 border-black bg-accent/20 neo-shadow flex flex-col items-center justify-center">
-              <div className="bg-white p-4 border-4 border-black neo-shadow mb-4 rotate-3">
+              <div className="bg-card p-4 border-4 border-black neo-shadow mb-4 rotate-3">
                 <Search className="w-12 h-12 text-primary" />
               </div>
               <h3 className="text-2xl font-display font-black mb-2">لا توجد نتائج</h3>

@@ -86,7 +86,7 @@ export default function AuthFlow() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <div className="border-b-4 border-black bg-primary p-4 flex items-center justify-center gap-3">
-        <div className="bg-white text-primary p-2 border-2 border-black">
+        <div className="bg-card text-primary p-2 border-2 border-black">
           <ShoppingBag className="h-6 w-6" />
         </div>
         <span className="text-2xl font-black text-white tracking-tight font-display">Uni Shop</span>
@@ -101,7 +101,7 @@ export default function AuthFlow() {
               <div key={s} className="flex items-center gap-2">
                 <div className={`w-8 h-8 border-2 border-black flex items-center justify-center font-black text-sm neo-shadow transition-colors ${
                   step === s ? "bg-primary text-white" :
-                  (["email", "otp", "profile"].indexOf(step) > i) ? "bg-accent text-black" : "bg-white text-black"
+                  (["email", "otp", "profile"].indexOf(step) > i) ? "bg-accent text-black" : "bg-card text-foreground"
                 }`}>
                   {["email", "otp", "profile"].indexOf(step) > i ? <CheckCircle className="w-4 h-4" /> : i + 1}
                 </div>

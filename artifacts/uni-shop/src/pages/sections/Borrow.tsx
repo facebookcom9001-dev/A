@@ -58,7 +58,7 @@ export default function Borrow() {
             <button
               key={c}
               onClick={() => { setCat(c); setQuery({ search, cat: c }); }}
-              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${cat === c ? "bg-secondary text-white" : "bg-white hover:bg-secondary/10"}`}
+              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${cat === c ? "bg-secondary text-white" : "bg-card hover:bg-secondary/10"}`}
             >
               {c || "الكل"}
             </button>

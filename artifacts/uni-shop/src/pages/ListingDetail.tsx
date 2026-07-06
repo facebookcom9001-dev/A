@@ -71,7 +71,7 @@ export default function ListingDetail() {
         <div className="inline-block p-12 border-4 border-black bg-destructive neo-shadow rotate-1">
           <h1 className="text-4xl font-display font-black text-white mb-4">المنتج غير موجود</h1>
           <p className="text-white font-bold mb-8">ربما تم بيع هذا المنتج أو حذفه.</p>
-          <Button asChild className="bg-white text-black hover:bg-gray-100 border-2 border-black neo-shadow rounded-none font-bold">
+          <Button asChild className="bg-card text-foreground hover:bg-muted border-2 border-black neo-shadow rounded-none font-bold">
             <Link href="/listings">العودة للسوق</Link>
           </Button>
         </div>
@@ -159,7 +159,7 @@ export default function ListingDetail() {
           </div>
 
           <div className="bg-muted border-4 border-black p-6 neo-shadow mb-8 relative">
-            <h3 className="font-display font-black text-xl mb-4 absolute -top-4 bg-white border-2 border-black px-2 py-1">الوصف</h3>
+            <h3 className="font-display font-black text-xl mb-4 absolute -top-4 bg-card border-2 border-black px-2 py-1">الوصف</h3>
             <p className="whitespace-pre-wrap font-medium pt-2">{listing.description}</p>
             <div className="text-xs font-bold text-muted-foreground mt-4 pt-4 border-t-2 border-black/20">
               أُضيف في {format(new Date(listing.createdAt), "d MMM yyyy", { locale: ar })}
@@ -171,7 +171,7 @@ export default function ListingDetail() {
             <h3 className="font-display font-black text-xl mb-4">عن البائع</h3>
 
             <Link href={`/sellers/${listing.sellerId}`}>
-              <div className="flex items-center gap-4 mb-6 p-3 bg-white border-2 border-black hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer">
+              <div className="flex items-center gap-4 mb-6 p-3 bg-card border-2 border-black hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer">
                 <div className="w-12 h-12 rounded-full border-2 border-black bg-primary flex items-center justify-center overflow-hidden">
                   <UserIcon className="w-6 h-6 text-white" />
                 </div>

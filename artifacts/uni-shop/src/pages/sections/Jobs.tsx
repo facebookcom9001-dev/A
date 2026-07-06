@@ -57,7 +57,7 @@ export default function Jobs() {
             <button
               key={t}
               onClick={() => { setJobType(t); setQuery({ search, jobType: t }); }}
-              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${jobType === t ? "bg-primary text-white" : "bg-white hover:bg-accent/20"}`}
+              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${jobType === t ? "bg-primary text-white" : "bg-card hover:bg-accent/20"}`}
             >
               {t || "الكل"}
             </button>

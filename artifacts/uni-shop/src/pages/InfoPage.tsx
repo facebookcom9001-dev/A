@@ -109,7 +109,7 @@ export default function InfoPage({ page }: { page: InfoPageKey }) {
             {content.points.map((point, i) => (
               <div
                 key={i}
-                className="border-2 border-black neo-shadow bg-white p-5 text-right hover:-translate-y-1 hover:-translate-x-1 transition-transform"
+                className="border-2 border-black neo-shadow bg-card p-5 text-right hover:-translate-y-1 hover:-translate-x-1 transition-transform"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="flex items-center justify-center w-7 h-7 flex-shrink-0 bg-primary text-white font-black text-sm border-2 border-black">

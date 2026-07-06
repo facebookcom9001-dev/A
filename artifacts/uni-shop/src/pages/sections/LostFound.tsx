@@ -60,7 +60,7 @@ export default function LostFound() {
             <button
               key={v}
               onClick={() => { setStatus(v); setQuery({ search, status: v }); }}
-              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${status === v ? "bg-destructive text-white" : "bg-white hover:bg-destructive/10"}`}
+              className={`px-3 py-2 border-2 border-black font-bold text-sm transition-colors ${status === v ? "bg-destructive text-white" : "bg-card hover:bg-destructive/10"}`}
             >
               {l}
             </button>

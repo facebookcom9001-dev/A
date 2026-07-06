@@ -217,7 +217,7 @@ export default function Messages() {
             <>
               <div className="p-3 border-b-4 border-black bg-accent/20 flex items-center gap-3">
                 {convId && (
-                  <button onClick={() => navigate("/messages")} className="md:hidden p-1 border-2 border-black neo-shadow bg-white">
+                  <button onClick={() => navigate("/messages")} className="md:hidden p-1 border-2 border-black neo-shadow bg-card">
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 )}
@@ -227,7 +227,7 @@ export default function Messages() {
                   <p className="text-xs text-muted-foreground font-bold truncate">{conv.otherUser?.university}</p>
                 </div>
                 {conv.listing && (
-                  <div className="flex items-center gap-1 bg-white border-2 border-black px-2 py-1 text-xs font-bold max-w-[140px]">
+                  <div className="flex items-center gap-1 bg-card border-2 border-black px-2 py-1 text-xs font-bold max-w-[140px]">
                     {sectionIcon[conv.listing.section]}
                     <span className="truncate">{conv.listing.title}</span>
                   </div>
@@ -237,7 +237,7 @@ export default function Messages() {
               <div className="flex-1 overflow-y-auto p-4 space-y-3">
                 {conv.messages.map(m => (
                   <div key={m.id} className={`flex ${m.isMine ? "justify-start" : "justify-end"}`}>
-                    <div className={`max-w-[70%] px-3 py-2 border-2 border-black text-sm font-bold ${m.isMine ? "bg-primary text-white" : "bg-white"}`}>
+                    <div className={`max-w-[70%] px-3 py-2 border-2 border-black text-sm font-bold ${m.isMine ? "bg-primary text-white" : "bg-card"}`}>
                       {m.content}
                       <div className={`text-xs mt-1 ${m.isMine ? "text-white/70" : "text-muted-foreground"}`}>
                         {timeAgo(m.createdAt)}

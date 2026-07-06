@@ -34,7 +34,7 @@ export default function Favorites() {
         </div>
       ) : (
         <div className="text-center py-32 border-4 border-black bg-accent/20 neo-shadow flex flex-col items-center justify-center max-w-3xl mx-auto">
-          <div className="bg-white p-6 border-4 border-black neo-shadow mb-6 -rotate-6">
+          <div className="bg-card p-6 border-4 border-black neo-shadow mb-6 -rotate-6">
             <Heart className="w-16 h-16 text-destructive" />
           </div>
           <h3 className="text-3xl font-display font-black mb-4">لا شيء محفوظ بعد</h3>

@@ -64,12 +64,12 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="تبديل الوضع الداكن"
-            className="p-2 border-2 border-black bg-white dark:bg-card hover:bg-accent/20 transition-colors"
+            className="p-2 border-2 border-black bg-card hover:bg-accent/20 transition-colors"
           >
             {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
 
-          <Link href="/messages" className={`relative p-2 border-2 transition-colors ${isActive("/messages") ? "border-black bg-primary text-white" : "border-black bg-white hover:bg-accent/20"}`}>
+          <Link href="/messages" className={`relative p-2 border-2 transition-colors ${isActive("/messages") ? "border-black bg-primary text-white" : "border-black bg-card hover:bg-accent/20"}`}>
             <MessageCircle className="w-5 h-5" />
           </Link>
 
@@ -151,7 +151,7 @@ export function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            className="lg:hidden border-2 border-black p-2 bg-white"
+            className="lg:hidden border-2 border-black p-2 bg-card"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -168,7 +168,7 @@ export function Navbar() {
               href={s.path}
               onClick={() => setMobileOpen(false)}
               className={`flex flex-col items-center gap-1 p-2 border-2 border-black font-bold text-xs text-center transition-colors ${
-                isActive(s.path) ? "bg-primary text-white" : "bg-white hover:bg-accent/20"
+                isActive(s.path) ? "bg-primary text-white" : "bg-card hover:bg-accent/20"
               }`}
             >
               <span className="text-lg">{s.emoji}</span>

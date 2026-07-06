@@ -92,14 +92,14 @@ export function AvatarUploader({ value, onChange }: AvatarUploaderProps) {
             <button
               type="button"
               onClick={() => setMode("upload")}
-              className={`flex items-center gap-1 px-3 py-1 text-xs font-black border-2 border-black transition-colors ${mode === "upload" ? "bg-primary text-white" : "bg-white hover:bg-accent/20"}`}
+              className={`flex items-center gap-1 px-3 py-1 text-xs font-black border-2 border-black transition-colors ${mode === "upload" ? "bg-primary text-white" : "bg-card hover:bg-accent/20"}`}
             >
               <Upload className="w-3 h-3" /> من الجهاز
             </button>
             <button
               type="button"
               onClick={() => setMode("url")}
-              className={`flex items-center gap-1 px-3 py-1 text-xs font-black border-2 border-black transition-colors ${mode === "url" ? "bg-primary text-white" : "bg-white hover:bg-accent/20"}`}
+              className={`flex items-center gap-1 px-3 py-1 text-xs font-black border-2 border-black transition-colors ${mode === "url" ? "bg-primary text-white" : "bg-card hover:bg-accent/20"}`}
             >
               <LinkIcon className="w-3 h-3" /> رابط
             </button>

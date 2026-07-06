@@ -138,7 +138,7 @@ export default function SellerProfile() {
               </span>
             </div>
 
-            <div className="bg-white p-4 border-r-4 border-black italic font-medium max-w-2xl mb-4">
+            <div className="bg-card p-4 border-r-4 border-black italic font-medium max-w-2xl mb-4">
               "{user.bio || "لم يكتب هذا البائع نبذة تعريفية بعد."}"
             </div>
           </div>

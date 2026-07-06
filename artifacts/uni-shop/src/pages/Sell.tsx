@@ -209,7 +209,7 @@ export default function Sell() {
           <button
             key={s.value}
             onClick={() => { setSectionState(s.value); setCategory(""); }}
-            className={`flex flex-col items-center gap-1 p-3 border-2 border-black font-bold text-xs text-center transition-all ${section === s.value ? "bg-primary text-white neo-shadow" : "bg-white hover:bg-accent/20"}`}
+            className={`flex flex-col items-center gap-1 p-3 border-2 border-black font-bold text-xs text-center transition-all ${section === s.value ? "bg-primary text-white neo-shadow" : "bg-card hover:bg-accent/20"}`}
           >
             <span className="text-xl">{s.emoji}</span>
             <span>{s.label}</span>
@@ -294,14 +294,14 @@ export default function Sell() {
                 <button
                   type="button"
                   onClick={() => setImageMode("url")}
-                  className={`flex items-center gap-2 px-4 py-2 border-2 border-black font-bold text-sm transition-colors ${imageMode === "url" ? "bg-primary text-white" : "bg-white hover:bg-accent/20"}`}
+                  className={`flex items-center gap-2 px-4 py-2 border-2 border-black font-bold text-sm transition-colors ${imageMode === "url" ? "bg-primary text-white" : "bg-card hover:bg-accent/20"}`}
                 >
                   <LinkIcon className="w-4 h-4" /> رابط URL
                 </button>
                 <button
                   type="button"
                   onClick={() => setImageMode("upload")}
-                  className={`flex items-center gap-2 px-4 py-2 border-2 border-black font-bold text-sm transition-colors ${imageMode === "upload" ? "bg-primary text-white" : "bg-white hover:bg-accent/20"}`}
+                  className={`flex items-center gap-2 px-4 py-2 border-2 border-black font-bold text-sm transition-colors ${imageMode === "upload" ? "bg-primary text-white" : "bg-card hover:bg-accent/20"}`}
                 >
                   <Upload className="w-4 h-4" /> رفع من جهازك
                 </button>

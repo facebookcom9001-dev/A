@@ -41,7 +41,7 @@ export default function Home() {
                 <Button asChild size="lg" className="neo-shadow text-lg font-black rounded-none border-2 border-black">
                   <Link href="/listings">ابدأ التصفح</Link>
                 </Button>
-                <Button asChild size="lg" variant="secondary" className="neo-shadow text-lg font-black rounded-none border-2 border-black bg-white text-black hover:bg-gray-100">
+                <Button asChild size="lg" variant="secondary" className="neo-shadow text-lg font-black rounded-none border-2 border-black bg-card text-foreground hover:bg-muted">
                   <Link href="/sell">صِر بائعاً</Link>
                 </Button>
               </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {SECTIONS.map((s) => (
             <Link key={s.value} href={s.path}>
-              <div className="bg-white border-4 border-black p-6 flex flex-col items-center justify-center neo-shadow hover:bg-primary hover:text-white transition-colors group cursor-pointer h-full min-h-[120px] gap-3">
+              <div className="bg-card border-4 border-black p-6 flex flex-col items-center justify-center neo-shadow hover:bg-primary hover:text-white transition-colors group cursor-pointer h-full min-h-[120px] gap-3">
                 <span className="text-4xl group-hover:scale-110 transition-transform">{s.emoji}</span>
                 <span className="font-display font-black text-center text-sm leading-tight">{s.label}</span>
               </div>
@@ -143,7 +143,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories ? categories.map((cat) => (
               <Link key={cat.category} href={`/listings?category=${cat.category}`}>
-                <div className="bg-white border-4 border-black p-6 flex flex-col items-center justify-center neo-shadow hover:bg-accent transition-colors group cursor-pointer h-full">
+                <div className="bg-card border-4 border-black p-6 flex flex-col items-center justify-center neo-shadow hover:bg-accent transition-colors group cursor-pointer h-full">
                   <h3 className="font-display font-black text-xl mb-2 group-hover:scale-110 transition-transform">{cat.category}</h3>
                   <Badge variant="outline" className="border-2 border-black font-bold">
                     {cat.count} منتج
