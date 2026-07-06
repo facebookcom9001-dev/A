@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Rocket, Plus, TrendingUp, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { ContactDialog } from "@/components/ContactDialog";
 
 const STAGES = ["فكرة", "نموذج أولي", "إطلاق", "نمو", "استثمار مطلوب"];
@@ -18,9 +18,10 @@ async function fetchSection(search?: string, stage?: string) {
 }
 
 export default function Startups() {
-  const [search, setSearch] = useState("");
+  const initialSearch = new URLSearchParams(useSearch()).get("search") || "";
+  const [search, setSearch] = useState(initialSearch);
   const [stage, setStage] = useState("");
-  const [query, setQuery] = useState({ search: "", stage: "" });
+  const [query, setQuery] = useState({ search: initialSearch, stage: "" });
   const [contactListing, setContactListing] = useState<any>(null);
 
   const { data = [], isLoading } = useQuery({

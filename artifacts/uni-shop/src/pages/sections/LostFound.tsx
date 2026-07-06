@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Search, Plus, MapPin, AlertCircle, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { ContactDialog } from "@/components/ContactDialog";
 
 async function fetchSection(search?: string, status?: string) {
@@ -16,9 +16,10 @@ async function fetchSection(search?: string, status?: string) {
 }
 
 export default function LostFound() {
-  const [search, setSearch] = useState("");
+  const initialSearch = new URLSearchParams(useSearch()).get("search") || "";
+  const [search, setSearch] = useState(initialSearch);
   const [status, setStatus] = useState("");
-  const [query, setQuery] = useState({ search: "", status: "" });
+  const [query, setQuery] = useState({ search: initialSearch, status: "" });
   const [contactListing, setContactListing] = useState<any>(null);
 
   const { data = [], isLoading } = useQuery({

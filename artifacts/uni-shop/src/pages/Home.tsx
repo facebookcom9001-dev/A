@@ -1,4 +1,5 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { useState } from "react";
 import {
   useGetFeaturedListings,
   useGetRecentListings,
@@ -7,8 +8,10 @@ import {
 } from "@workspace/api-client-react";
 import { ListingCard } from "@/components/ListingCard";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Tag, Users, ShoppingCart, Sparkles } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowLeft, Tag, Users, ShoppingCart, Sparkles, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SECTIONS } from "@/lib/constants";
 
@@ -17,6 +20,15 @@ export default function Home() {
   const { data: recent, isLoading: isLoadingRecent } = useGetRecentListings();
   const { data: stats } = useGetStats();
   const { data: categories } = useGetCategoryStats();
+  const [, navigate] = useLocation();
+  const [heroSection, setHeroSection] = useState(SECTIONS[0].value);
+  const [heroSearch, setHeroSearch] = useState("");
+
+  const handleHeroSearch = () => {
+    const target = SECTIONS.find(s => s.value === heroSection) ?? SECTIONS[0];
+    const params = heroSearch.trim() ? `?search=${encodeURIComponent(heroSearch.trim())}` : "";
+    navigate(`${target.path}${params}`);
+  };
 
   return (
     <div className="flex flex-col gap-20 pb-20">
@@ -35,8 +47,34 @@ export default function Home() {
                 <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>بحرمك الجامعي</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
-                منصة الطلاب الجامعيين الشاملة: بيع وشراء الغراض، دور على فرص عمل وشريك سكن، اعرض فكرة Startup، لقّي مفقوداتك، أو استعير واستعِر من زملائك.
+                منصة الطلاب الجامعيين الشاملة: بيع واشترِ أغراضك، دوّر على وظيفة أو شريك سكن، اطرح فكرتك في Startup Hub، لاقِ مفقوداتك، أو استعِر واستأجر من زملائك بالحرم الجامعي.
               </p>
+
+              <div className="flex flex-col sm:flex-row gap-2 mb-6 bg-card border-2 border-black p-2 neo-shadow">
+                <Select value={heroSection} onValueChange={setHeroSection}>
+                  <SelectTrigger className="border-2 border-black rounded-none font-bold sm:w-44 focus:ring-0 focus:ring-offset-0">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="border-2 border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    {SECTIONS.map(s => (
+                      <SelectItem key={s.value} value={s.value} className="font-bold cursor-pointer">
+                        {s.emoji} {s.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Input
+                  value={heroSearch}
+                  onChange={e => setHeroSearch(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleHeroSearch()}
+                  placeholder="عن شو بتدور؟"
+                  className="border-2 border-black rounded-none flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
+                <Button onClick={handleHeroSearch} size="lg" className="neo-shadow rounded-none border-2 border-black font-black">
+                  <Search className="w-4 h-4 ml-1" /> دور
+                </Button>
+              </div>
+
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="neo-shadow text-lg font-black rounded-none border-2 border-black">
                   <Link href="/listings">ابدأ التصفح</Link>

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Handshake, Plus, Calendar, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { ContactDialog } from "@/components/ContactDialog";
 
 const BORROW_CATS = ["كتب", "أدوات", "إلكترونيات", "ملابس", "معدات رياضية", "أخرى"];
@@ -18,9 +18,10 @@ async function fetchSection(search?: string, cat?: string) {
 }
 
 export default function Borrow() {
-  const [search, setSearch] = useState("");
+  const initialSearch = new URLSearchParams(useSearch()).get("search") || "";
+  const [search, setSearch] = useState(initialSearch);
   const [cat, setCat] = useState("");
-  const [query, setQuery] = useState({ search: "", cat: "" });
+  const [query, setQuery] = useState({ search: initialSearch, cat: "" });
   const [contactListing, setContactListing] = useState<any>(null);
 
   const { data = [], isLoading } = useQuery({

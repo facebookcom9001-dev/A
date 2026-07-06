@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Briefcase, Plus, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useSearch } from "wouter";
 import { ContactDialog } from "@/components/ContactDialog";
 import { JOB_TYPES } from "@/lib/constants";
 
@@ -17,9 +17,10 @@ async function fetchSection(search?: string, jobType?: string) {
 }
 
 export default function Jobs() {
-  const [search, setSearch] = useState("");
+  const initialSearch = new URLSearchParams(useSearch()).get("search") || "";
+  const [search, setSearch] = useState(initialSearch);
   const [jobType, setJobType] = useState("");
-  const [query, setQuery] = useState({ search: "", jobType: "" });
+  const [query, setQuery] = useState({ search: initialSearch, jobType: "" });
   const [contactListing, setContactListing] = useState<any>(null);
 
   const { data = [], isLoading } = useQuery({

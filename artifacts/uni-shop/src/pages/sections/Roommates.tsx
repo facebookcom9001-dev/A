@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Home, Plus, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { ContactDialog } from "@/components/ContactDialog";
 import { ROOM_GENDER } from "@/lib/constants";
 
@@ -16,8 +16,9 @@ async function fetchSection(search?: string) {
 }
 
 export default function Roommates() {
-  const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("");
+  const initialSearch = new URLSearchParams(useSearch()).get("search") || "";
+  const [search, setSearch] = useState(initialSearch);
+  const [query, setQuery] = useState(initialSearch);
   const [contactListing, setContactListing] = useState<any>(null);
 
   const { data = [], isLoading } = useQuery({
