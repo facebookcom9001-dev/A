@@ -30,12 +30,12 @@ export default function Home() {
                 <span>سوق الطلاب الجامعي</span>
               </div>
               <h1 className="text-5xl md:text-7xl font-display font-black tracking-tight mb-6 leading-[0.9]">
-                اشترِ وبِع
+                كل شي بدّك ياه
                 <br/>
-                <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>إبداع الطلاب</span>
+                <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>بحرمك الجامعي</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
-                سوق رقمي نابض بالحياة يجعل إبداعك مصدر دخل. اعثر على فنون وبرامج وإبداعات يدوية من طلاب في كل مكان.
+                منصة الطلاب الجامعيين الشاملة: بيع وشراء الغراض، دور على فرص عمل وشريك سكن، اعرض فكرة Startup، لقّي مفقوداتك، أو استعير واستعِر من زملائك.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="neo-shadow text-lg font-black rounded-none border-2 border-black">
