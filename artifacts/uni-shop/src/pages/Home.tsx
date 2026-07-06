@@ -41,14 +41,6 @@ export default function Home() {
                 <Sparkles className="w-4 h-4" />
                 <span>سوق الطلاب الجامعي</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-display font-black tracking-tight mb-6 leading-[0.9]">
-                كل شي بدّك ياه
-                <br/>
-                <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>بحرمك الجامعي</span>
-              </h1>
-              <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
-                منصة الطلاب الجامعيين الشاملة: بيع واشترِ أغراضك، دوّر على وظيفة أو شريك سكن، اطرح فكرتك في Startup Hub، لاقِ مفقوداتك، أو استعِر واستأجر من زملائك بالحرم الجامعي.
-              </p>
 
               <div className="flex flex-col sm:flex-row gap-2 mb-6 bg-card border-2 border-black p-2 neo-shadow">
                 <Select value={heroSection} onValueChange={setHeroSection}>
@@ -74,6 +66,15 @@ export default function Home() {
                   <Search className="w-4 h-4 ml-1" /> دور
                 </Button>
               </div>
+
+              <h1 className="text-5xl md:text-7xl font-display font-black tracking-tight mb-6 leading-[0.9]">
+                كل شي بدّك ياه
+                <br/>
+                <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>بحرمك الجامعي</span>
+              </h1>
+              <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
+                منصتك الجامعية الشاملة لكل شي: بيع واشترِ، لاقِ وظيفة أو شريك سكن، دشّن فكرتك بـ Startup Hub، بلّغ عن مفقوداتك، أو استعِر واستأجر أغراض من زملائك.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="neo-shadow text-lg font-black rounded-none border-2 border-black">
