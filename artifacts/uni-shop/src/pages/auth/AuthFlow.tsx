@@ -118,8 +118,8 @@ export default function AuthFlow() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-black font-display">أهلاً فيك 👋</h1>
-                  <p className="text-sm text-muted-foreground font-bold">سجّل دخولك ببريدك الجامعي وابدأ</p>
+                  <h1 className="text-2xl font-black font-display">أدخل بريدك الجامعي</h1>
+                  <p className="text-sm text-muted-foreground font-bold">سنرسل لك رمز تحقق</p>
                 </div>
               </div>
               <form onSubmit={handleSendOtp} className="space-y-5">

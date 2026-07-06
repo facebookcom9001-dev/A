@@ -79,7 +79,7 @@ export default function Home() {
                 <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>بحرمك الجامعي</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
-                منصتك الجامعية الشاملة لكل شي: بيع واشترِ، لاقِ وظيفة أو شريك سكن، دشّن فكرتك بـ Startup Hub، بلّغ عن مفقوداتك، أو استعِر واستأجر أغراض من زملائك.
+                منصتك الجامعية الواحدة لكل شي: سوق، وظائف، سكن، أفكار ريادية، مفقودات، واستعارة.
               </p>
 
               <div className="flex flex-wrap gap-4">
