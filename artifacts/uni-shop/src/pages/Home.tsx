@@ -32,39 +32,40 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-20 pb-20">
-      {/* Hero Search Bar */}
-      <section className="border-b-4 border-black bg-primary/10 pt-6 pb-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row gap-2 bg-card border-2 border-black p-2 neo-shadow w-full">
-            <Select value={heroSection} onValueChange={setHeroSection}>
-              <SelectTrigger className="border-2 border-black rounded-none font-bold sm:w-48 focus:ring-0 focus:ring-offset-0">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="border-2 border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                {SECTIONS.map(s => (
-                  <SelectItem key={s.value} value={s.value} className="font-bold cursor-pointer">
-                    {s.emoji} {s.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Input
-              value={heroSearch}
-              onChange={e => setHeroSearch(e.target.value)}
-              onKeyDown={e => e.key === "Enter" && handleHeroSearch()}
-              placeholder="عن شو بتدور؟"
-              className="border-2 border-black rounded-none flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
-            />
-            <Button onClick={handleHeroSearch} size="lg" className="neo-shadow rounded-none border-2 border-black font-black">
-              <Search className="w-4 h-4 ml-1" /> دور
-            </Button>
+      <div>
+        {/* Hero Search Bar */}
+        <section className="bg-primary/10 pt-6 pb-6">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col sm:flex-row gap-2 bg-card border-2 border-black p-2 neo-shadow w-full">
+              <Select value={heroSection} onValueChange={setHeroSection}>
+                <SelectTrigger className="border-2 border-black rounded-none font-bold sm:w-48 focus:ring-0 focus:ring-offset-0">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="border-2 border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  {SECTIONS.map(s => (
+                    <SelectItem key={s.value} value={s.value} className="font-bold cursor-pointer">
+                      {s.emoji} {s.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Input
+                value={heroSearch}
+                onChange={e => setHeroSearch(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && handleHeroSearch()}
+                placeholder="عن شو بتدور؟"
+                className="border-2 border-black rounded-none flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+              />
+              <Button onClick={handleHeroSearch} size="lg" className="neo-shadow rounded-none border-2 border-black font-black">
+                <Search className="w-4 h-4 ml-1" /> دور
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-20 overflow-hidden border-b-4 border-black bg-primary/10">
-        <div className="container mx-auto px-4 relative z-10">
+        {/* Hero Section */}
+        <section className="relative pt-12 pb-20 overflow-hidden border-b-4 border-black bg-primary/10">
+          <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 border-2 border-black bg-accent text-black font-black text-sm mb-6 neo-shadow">
@@ -101,9 +102,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent rounded-full blur-3xl opacity-50 z-0"></div>
-        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-primary rounded-full blur-3xl opacity-20 z-0"></div>
-      </section>
+          <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent rounded-full blur-3xl opacity-50 z-0"></div>
+          <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-primary rounded-full blur-3xl opacity-20 z-0"></div>
+        </section>
+      </div>
 
       {/* Stats ticker */}
       <div className="bg-black text-white py-4 overflow-hidden border-y-4 border-black flex">
