@@ -92,11 +92,10 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-secondary translate-x-4 translate-y-4 border-4 border-black"></div>
               <img
                 src="/images/hero-banner.png"
                 alt="سوق الطلاب"
-                className="w-full relative z-10 border-4 border-black object-cover aspect-[4/3] grayscale-[20%] contrast-[1.2]"
+                className="w-full border-4 border-black object-cover aspect-[4/3] grayscale-[20%] contrast-[1.2] neo-shadow"
               />
             </div>
           </div>
