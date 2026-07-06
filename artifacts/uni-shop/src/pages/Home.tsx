@@ -73,9 +73,8 @@ export default function Home() {
                 <span>سوق الطلاب الجامعي</span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-display font-black tracking-tight mb-6 leading-[0.9]">
-                Uni Shop
-                <br/>
+              <h1 className="text-5xl md:text-7xl font-display font-black tracking-tight mb-6 leading-[1.2] space-y-2 flex flex-col">
+                <span>Uni Shop</span>
                 <span className="text-primary" style={{ WebkitTextStroke: '2px black' }}>سوق الطلاب الجامعي</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium mb-8 border-r-4 border-black pr-4">
