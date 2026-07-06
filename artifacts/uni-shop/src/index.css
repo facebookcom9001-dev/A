@@ -131,7 +131,11 @@
   --card: 240 10% 8%;
   --card-foreground: 0 0% 98%;
   --card-border: 240 10% 20%;
-  
+
+  --popover: 240 10% 8%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 240 10% 20%;
+
   --primary: 14 100% 60%;
   --primary-foreground: 0 0% 100%;
   --secondary: 220 100% 65%;
